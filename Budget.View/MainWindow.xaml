@@ -1,0 +1,203 @@
+﻿<Window x:Class="Budget.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:local="clr-namespace:Budget.View"
+        xmlns:uc="clr-namespace:Budget.View.UserControls"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Height="450"
+        Title="MainWindow"
+        Width="800"
+        Loaded="OnLoaded">
+
+    <DockPanel LastChildFill="True">
+        <Grid DockPanel.Dock="Top" Margin="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <UniformGrid x:Name="ugLegend" Grid.Column="1" Columns="4" Height="40" Margin="2" Rows="1">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Margin="0, 0, 2, 2" FontWeight="Bold" Text="Budget" />
+                    <ComboBox Margin="0, 0, 2, 0" VerticalAlignment="Center" />
+                </StackPanel>
+                <Border Background="#44FFFF00" BorderBrush="#FF000000" BorderThickness="1">
+                    <TextBlock Foreground="#88000000" HorizontalAlignment="Center" Margin="0" Text="Bill(s) Due" VerticalAlignment="Center" />
+                </Border>
+                <Border Background="#4400FF00" BorderBrush="#FF000000" BorderThickness="1">
+                    <TextBlock Foreground="#88000000" HorizontalAlignment="Center" Margin="0" Text="Payday" VerticalAlignment="Center" />
+                </Border>
+                <Border Background="#44FF0000" BorderBrush="#FF000000" BorderThickness="1">
+                    <TextBlock Foreground="#88000000" HorizontalAlignment="Center" Margin="0" Text="Bill(s) Paid" VerticalAlignment="Center" />
+                </Border>
+            </UniformGrid>
+        </Grid>
+
+        <DockPanel DockPanel.Dock="Bottom" LastChildFill="True">
+            <!--Monthly List of Bills-->
+            <!--
+		public int DueDay { get; set; }
+
+		public DateTime? PaymentDate { get; set; }
+
+		public string Name { get; set; }
+
+		public decimal Amount { get; set; }
+
+		public bool IsPaidOff { get; set; } = false;
+            -->
+        </DockPanel>
+
+        <Rectangle DockPanel.Dock="Top" Fill="Black" HorizontalAlignment="Stretch" Height="1" />
+        <TextBlock DockPanel.Dock="Top" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Text="April 2022" />
+        <Grid x:Name="ugCalendar" DockPanel.Dock="Top" HorizontalAlignment="Stretch" Margin="2" VerticalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Border Grid.Column="0" Grid.Row="0" Background="#44000000" BorderBrush="#FF000000" BorderThickness="1">
+                <TextBlock HorizontalAlignment="Center" Text="Sunday" VerticalAlignment="Center" />
+            </Border>
+            <Border Grid.Column="1" Grid.Row="0" Background="#44000000" BorderBrush="#FF000000" BorderThickness="1">
+                <TextBlock HorizontalAlignment="Center" Text="Monday" VerticalAlignment="Center" />
+            </Border>
+            <Border Grid.Column="2" Grid.Row="0" Background="#44000000" BorderBrush="#FF000000" BorderThickness="1">
+                <TextBlock HorizontalAlignment="Center" Text="Tuesday" VerticalAlignment="Center" />
+            </Border>
+            <Border Grid.Column="3" Grid.Row="0" Background="#44000000" BorderBrush="#FF000000" BorderThickness="1">
+                <TextBlock HorizontalAlignment="Center" Text="Wednesday" VerticalAlignment="Center" />
+            </Border>
+            <Border Grid.Column="4" Grid.Row="0" Background="#44000000" BorderBrush="#FF000000" BorderThickness="1">
+                <TextBlock HorizontalAlignment="Center" Text="Thursday" VerticalAlignment="Center" />
+            </Border>
+            <Border Grid.Column="5" Grid.Row="0" Background="#44000000" BorderBrush="#FF000000" BorderThickness="1">
+                <TextBlock HorizontalAlignment="Center" Text="Friday" VerticalAlignment="Center" />
+            </Border>
+            <Border Grid.Column="6" Grid.Row="0" Background="#44000000" BorderBrush="#FF000000" BorderThickness="1">
+                <TextBlock HorizontalAlignment="Center" Text="Saturday" VerticalAlignment="Center" />
+            </Border>
+            
+            <Border Grid.Column="0" Grid.Row="1" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Black" />
+            </Border>
+            <Border Grid.Column="1" Grid.Row="1" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="#44FFFF00" DayNumber="1" CalendarText="Car Payment" />
+            </Border>
+            <Border Grid.Column="2" Grid.Row="1" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="#4400FF00" DayNumber="2" CalendarText="House Payment" />
+            </Border>
+            <Border Grid.Column="3" Grid.Row="1" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="#44FF0000" DayNumber="3" CalendarText="Hulu Payment" />
+            </Border>
+            <Border Grid.Column="4" Grid.Row="1" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Transparent" DayNumber="4" />
+            </Border>
+            <Border Grid.Column="5" Grid.Row="1" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Transparent" DayNumber="5" />
+            </Border>
+            <Border Grid.Column="6" Grid.Row="1" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Transparent" DayNumber="6" />
+            </Border>
+
+            <Border Grid.Column="0" Grid.Row="2" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Transparent" DayNumber="7" />
+            </Border>
+            <Border Grid.Column="1" Grid.Row="2" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Transparent" DayNumber="8" />
+            </Border>
+            <Border Grid.Column="2" Grid.Row="2" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Transparent" DayNumber="9" />
+            </Border>
+            <Border Grid.Column="3" Grid.Row="2" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Transparent" DayNumber="10" />
+            </Border>
+            <Border Grid.Column="4" Grid.Row="2" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Transparent" DayNumber="11" />
+            </Border>
+            <Border Grid.Column="5" Grid.Row="2" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Transparent" DayNumber="12" />
+            </Border>
+            <Border Grid.Column="6" Grid.Row="2" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Transparent" DayNumber="13" />
+            </Border>
+
+            <Border Grid.Column="0" Grid.Row="3" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Transparent" DayNumber="14" />
+            </Border>
+            <Border Grid.Column="1" Grid.Row="3" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Transparent" DayNumber="15" />
+            </Border>
+            <Border Grid.Column="2" Grid.Row="3" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Transparent" DayNumber="16" />
+            </Border>
+            <Border Grid.Column="3" Grid.Row="3" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Transparent" DayNumber="17" />
+            </Border>
+            <Border Grid.Column="4" Grid.Row="3" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Transparent" DayNumber="18" />
+            </Border>
+            <Border Grid.Column="5" Grid.Row="3" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Transparent" DayNumber="19" />
+            </Border>
+            <Border Grid.Column="6" Grid.Row="3" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Transparent" DayNumber="20" />
+            </Border>
+
+            <Border Grid.Column="0" Grid.Row="4" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Transparent" DayNumber="21" />
+            </Border>
+            <Border Grid.Column="1" Grid.Row="4" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Transparent" DayNumber="22" />
+            </Border>
+            <Border Grid.Column="2" Grid.Row="4" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Transparent" DayNumber="23" />
+            </Border>
+            <Border Grid.Column="3" Grid.Row="4" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Transparent" DayNumber="24" />
+            </Border>
+            <Border Grid.Column="4" Grid.Row="4" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Transparent" DayNumber="25" />
+            </Border>
+            <Border Grid.Column="5" Grid.Row="4" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Transparent" DayNumber="26" />
+            </Border>
+            <Border Grid.Column="6" Grid.Row="4" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Transparent" DayNumber="27" />
+            </Border>
+
+            <Border Grid.Column="0" Grid.Row="5" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Transparent" DayNumber="28" />
+            </Border>
+            <Border Grid.Column="1" Grid.Row="5" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Transparent" DayNumber="29" />
+            </Border>
+            <Border Grid.Column="2" Grid.Row="5" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Transparent" DayNumber="30" />
+            </Border>
+            <Border Grid.Column="3" Grid.Row="5" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Black" />
+            </Border>
+            <Border Grid.Column="4" Grid.Row="5" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Black" />
+            </Border>
+            <Border Grid.Column="5" Grid.Row="5" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Black" />
+            </Border>
+            <Border Grid.Column="6" Grid.Row="5" BorderBrush="#FF000000" BorderThickness="1">
+                <uc:CalendarDay Background="Black" />
+            </Border>
+        </Grid>
+    </DockPanel>
+</Window>
