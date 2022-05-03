@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\PersonalRepo\Budget\Budget.View\obj\Debug\
+D:\GitRepo\Budget\Budget.View\obj\Debug\
 Budget.View
 none
 false
 DEBUG;TRACE
-D:\PersonalRepo\Budget\Budget.View\App.xaml
+D:\GitRepo\Budget\Budget.View\App.xaml
 2-1041212274
 
 12948821042
-1821705953
+18-1130096045
 MainWindow.xaml;UserControls\CalendarDay.xaml;
 
-True
+False
 

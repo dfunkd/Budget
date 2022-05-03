@@ -6,7 +6,8 @@
         Height="450"
         Title="MainWindow"
         Width="800"
-        Loaded="OnLoaded">
+        Loaded="OnLoaded"
+        x:Name="winMain">
 
     <DockPanel LastChildFill="True">
         <Grid DockPanel.Dock="Top" Margin="0">
@@ -47,7 +48,11 @@
         </DockPanel>
 
         <Rectangle DockPanel.Dock="Top" Fill="Black" HorizontalAlignment="Stretch" Height="1" />
-        <TextBlock DockPanel.Dock="Top" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Text="April 2022" />
+        <DockPanel DockPanel.Dock="Top" LastChildFill="True">
+            <Button DockPanel.Dock="Left" x:Name="btnPrevMonth" Content="Previous Month" FontSize="18" FontWeight="Bold" />
+            <Button DockPanel.Dock="Right" x:Name="btnNextMonth" Content="Next Month" FontSize="18" FontWeight="Bold" />
+            <TextBlock DockPanel.Dock="Left" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Text="{Binding ElementName=winMain, Path=MonthString}" />
+        </DockPanel>
         <Grid x:Name="ugCalendar" DockPanel.Dock="Top" HorizontalAlignment="Stretch" Margin="2" VerticalAlignment="Stretch">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -65,9 +70,10 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <Border Grid.Column="0" Grid.Row="0" Background="#44000000" BorderBrush="#FF000000" BorderThickness="1">
+            <!--<Border Grid.Column="0" Grid.Row="0" Background="#44000000" BorderBrush="#FF000000" BorderThickness="1">
                 <TextBlock HorizontalAlignment="Center" Text="Sunday" VerticalAlignment="Center" />
             </Border>
             <Border Grid.Column="1" Grid.Row="0" Background="#44000000" BorderBrush="#FF000000" BorderThickness="1">
@@ -197,7 +203,7 @@
             </Border>
             <Border Grid.Column="6" Grid.Row="5" BorderBrush="#FF000000" BorderThickness="1">
                 <uc:CalendarDay Background="Black" />
-            </Border>
+            </Border>-->
         </Grid>
     </DockPanel>
 </Window>
