@@ -4,17 +4,19 @@
              xmlns:local="clr-namespace:Budget.View.UserControls"
              x:Name="ucCalDay">
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="Auto" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+    <RadioButton x:Name="rbDay" Background="Transparent" GroupName="Month" Style="{StaticResource {x:Type ToggleButton}}">
+        <Grid HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="1" Grid.Row="0" Foreground="#88000000" Margin="2" Text="{Binding ElementName=ucCalDay, Path=DayNumber}" />
-        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Foreground="#88000000" Margin="2" Text="{Binding ElementName=ucCalDay, Path=CalendarText}" TextWrapping="WrapWithOverflow" />
-    </Grid>
+            <TextBlock Grid.Column="1" Grid.Row="0" Foreground="#88000000" HorizontalAlignment="Right" Margin="2" Text="{Binding ElementName=ucCalDay, Path=DayNumber}" />
+            <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Foreground="#88000000" Margin="2" Text="{Binding ElementName=ucCalDay, Path=CalendarText}" TextWrapping="WrapWithOverflow" />
+        </Grid>
+    </RadioButton>
 </UserControl>

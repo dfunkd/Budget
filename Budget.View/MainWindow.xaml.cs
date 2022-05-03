@@ -65,13 +65,25 @@ namespace Budget.View
                     }
                     else if ((row == 1 && column < new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).Day - 1) || day >= totalDays)
                     {
-                        CalendarDay calendarDay = new CalendarDay { Background = new SolidColorBrush(Colors.Black) };
+                        //CalendarDay calendarDay = new CalendarDay { Background = new SolidColorBrush(Colors.Black) };
+
+                        //Border blankBorder = new Border
+                        //{
+                        //    BorderBrush = DrawingColorToSolidColorBrush("#FF000000"),
+                        //    BorderThickness = new Thickness(1),
+                        //    Child = calendarDay,
+                        //    IsEnabled = false
+                        //};
+                        //Grid.SetColumn(blankBorder, column);
+                        //Grid.SetRow(blankBorder, row);
+                        //ugCalendar.Children.Add(blankBorder);
 
                         Border blankBorder = new Border
                         {
+                            Background = DrawingColorToSolidColorBrush("#FF000000"),
                             BorderBrush = DrawingColorToSolidColorBrush("#FF000000"),
                             BorderThickness = new Thickness(1),
-                            Child = calendarDay
+                            Margin = new Thickness(0)
                         };
                         Grid.SetColumn(blankBorder, column);
                         Grid.SetRow(blankBorder, row);
@@ -80,33 +92,27 @@ namespace Budget.View
                     else
                     {
                         day += 1;
-                        //    /*
-                        //    <Border Grid.Column="1" Grid.Row="1" BorderBrush="#FF000000" BorderThickness="1">
-                        //        <uc:CalendarDay Background="#44FFFF00" DayNumber="1" CalendarText="Car Payment" />
-                        //    </Border>
-                        //    <Border Grid.Column="2" Grid.Row="1" BorderBrush="#FF000000" BorderThickness="1">
-                        //        <uc:CalendarDay Background="#4400FF00" DayNumber="2" CalendarText="House Payment" />
-                        //    </Border>
-                        //    <Border Grid.Column="3" Grid.Row="1" BorderBrush="#FF000000" BorderThickness="1">
-                        //        <uc:CalendarDay Background="#44FF0000" DayNumber="3" CalendarText="Hulu Payment" />
-                        //    </Border>
-                        //     */
-                        //    //Add Regular Day
-                        //    date = date++;
-                        DateTime calDate = new DateTime(year, month, day);
-                        Border blankBorder = new Border
+                        /*
+                        <Border Grid.Column="1" Grid.Row="1" BorderBrush="#FF000000" BorderThickness="1">
+                            <uc:CalendarDay Background="#44FFFF00" DayNumber="1" CalendarText="Car Payment" />
+                        </Border>
+                        <Border Grid.Column="2" Grid.Row="1" BorderBrush="#FF000000" BorderThickness="1">
+                            <uc:CalendarDay Background="#4400FF00" DayNumber="2" CalendarText="House Payment" />
+                        </Border>
+                        <Border Grid.Column="3" Grid.Row="1" BorderBrush="#FF000000" BorderThickness="1">
+                            <uc:CalendarDay Background="#44FF0000" DayNumber="3" CalendarText="Hulu Payment" />
+                        </Border>
+                         */
+                        CalendarDay calendarDay = new CalendarDay
                         {
-                            BorderBrush = DrawingColorToSolidColorBrush("#FF000000"),
-                            BorderThickness = new Thickness(1),
-                            Child = new CalendarDay
-                            {
-                                Background = DrawingColorToSolidColorBrush("#44FFFF00"),
-                                DayNumber = day.ToString()
-                            }
+                            Background = DrawingColorToSolidColorBrush("#44FFFF00"),
+                            DayNumber = day.ToString()
                         };
-                        Grid.SetColumn(blankBorder, column);
-                        Grid.SetRow(blankBorder, row);
-                        ugCalendar.Children.Add(blankBorder);
+                        Grid.SetColumn(calendarDay, column);
+                        Grid.SetRow(calendarDay, row);
+                        ugCalendar.Children.Add(calendarDay);
+
+                        calendarDay.rbDay.Click += OnCalendarDayClick;
                     }
                 }
             }
@@ -136,6 +142,12 @@ namespace Budget.View
                 default:
                     return string.Empty;
             }
+        }
+
+        private void OnCalendarDayClick(object sender, RoutedEventArgs e)
+        {
+            var calendarDay = (e.Source as RadioButton).Parent as CalendarDay;
+            int.TryParse(calendarDay.DayNumber, out int dayNumber);
         }
     }
 }
